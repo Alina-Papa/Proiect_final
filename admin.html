@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Admin</title>
+    <link href='https://fonts.googleapis.com/css?family=La Belle Aurore' rel='stylesheet'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+	<script src="scriptAdmin.js"></script>
+</head>
+<style>
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+    }
+    body{
+        background-color: #2E1609;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        color: #ffb700;
+        align-items: center;
+    }
+    .container{
+    height: 60px;
+}
+.banner-title {
+    font-size: 30px;
+    color: #ffb700;
+    padding: 40px;
+}
+    .product-submission{
+       max-width:70%;
+       margin:2rem auto;
+       padding:2rem;
+       border-radius:9px;   
+       background-color: #352E29;
+    }
+    label {
+        display: block;
+        padding: 1rem ;
+        margin-left: 80px;
+    }
+
+    input, textarea {
+        display: block;
+        width: fit-content;
+        border-radius:40px;
+        padding: 10px;
+        color: black;
+    }
+    .btn{
+        border:0;
+        background:#D7AB3E;
+        padding:.5rem;
+        color:#2E1609;
+        margin:1rem 0;
+        width:auto;
+        text-transform:uppercase;
+        cursor:pointer;
+        transition:.3s background ease;
+        margin-left: 70%;
+        background-color: red;   
+    }
+    .btn:hover{
+        background:#E28A4B;
+    }
+    .upload{
+    	background-color: green;
+    }
+    tr:hover {
+    	background-color: #f5f5f5;
+    }
+     th, td {
+
+        border: 1px solid #ffb700;;
+        text-align: center;
+        border-collapse: collapse;
+        background-color: #352E29;
+        padding: 6px;
+        text-transform: capitalize;
+        color: #ffb700;
+        cursor: pointer;
+    }
+	a {
+		text-decoration: none;
+		color: #ffb700;
+	}
+    thead{
+        font-weight: bolder;
+    }
+    table{
+        margin:11%;
+        align-self: center;
+    }
+</style>
+
+<body onload="getProductAdmin();">
+    <div class="main-nav">
+       <a href="index.html">
+              <img src="imagini/veve6.png" alt="logo">
+            </a>
+                <a href="admin.html">
+                  <span class="admin cart-info">
+                    <p style="font-weight: bold;" >
+                      <span class="glyphicon ">&#xe033;</span> Admin
+                    </p>
+                  </span>
+                </a>
+            </div>
+    </div>     
+  </nav>
+	<form onsubmit="event.preventDefault();add();" style="display:none; " class="product-submission">
+        <label>Name:<input type="text" name="name"/></label>
+        <label>Image:<input type="file" name="image" accept="image/*"/></label>
+        <label>Price:<input type="number" name="price"/></label>
+        <label>Description:<textarea name="description"></textarea></label>
+        </label>
+        <label>Stock:<input type="number" name="stock"/></label>
+        <input class="btn upload" type="submit" value="Upload product"/>
+        <input class="btn" type="button" value="Cancel" onclick="showTable();"/>
+    </form>
+
+	<table border="1" style="width: 70%;">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Price</td>
+                <td>Stock</td>
+                <td>Remove</td>
+                <td>Edit</td>
+            </tr>
+        </thead>
+        <tbody id="detaliiProdus"></tbody>
+    </table>
+    <input class="btn upload addForm" type="submit" value="Add Form" onclick="showAddForm()"/>
+</body>
+</html>
